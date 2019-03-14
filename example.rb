@@ -17,4 +17,4 @@ TestRunner.run_tests(test_names: ["AnotherTest#test_pass", "TestTest#test_is_ok?
 puts "-" * 20
 
 # run a specific test with a dependency
-TestRunner.run_tests(test_names: ["AnotherTest#test_do_task_requireing_setup"])
+TestRunner.run_tests(test_names: ["AnotherTest#test_do_task_requiring_setup"])

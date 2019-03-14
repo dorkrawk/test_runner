@@ -11,6 +11,7 @@ class TestBase
     puts "Running tests for #{self.class.name}"
     test_methods.each do |test_method|
       if whitelist_tests.nil? || whitelist_tests.include?(test_method.to_s)
+        puts "  #{test_method}"
         self.send(test_method)
         @tests_run.add(test_method)
       end
@@ -26,11 +27,11 @@ class TestBase
   end
 
   def on_success(message = "")
-    puts "  ✅ #{message}"
+    puts "     ✅ #{message}"
   end
 
   def on_failure(message = "")
-    puts "  ❌ #{message}"
+    puts "     ❌ #{message}"
   end
 
   def test_methods

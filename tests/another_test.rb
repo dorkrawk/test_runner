@@ -18,7 +18,7 @@ class AnotherTest < TestBase
     on_success("things set up even more")
   end
 
-  def test_do_task_requireing_setup
+  def test_do_task_requiring_setup
     dependencies :test_setup, :test_more_setup
 
     on_success("task done")

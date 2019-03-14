@@ -23,7 +23,7 @@ TestRunner.run_tests(test_files: ["test_test"])
 TestRunner.run_tests(test_names: ["AnotherTest#test_pass", "TestTest#test_is_ok?"])
 
 # run a specific test with a dependency
-TestRunner.run_tests(test_names: ["AnotherTest#test_do_task_requireing_setup"])
+TestRunner.run_tests(test_names: ["AnotherTest#test_do_task_requiring_setup"])
 ```
 
 ```ruby
@@ -37,7 +37,7 @@ class AnotherTest < TestBase
     on_success("things set up even more")
   end
 
-  def test_do_task_requireing_setup
+  def test_do_task_requiring_setup
     dependencies :test_setup, :test_more_setup
 
     on_success("task done")

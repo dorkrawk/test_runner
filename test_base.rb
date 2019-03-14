@@ -9,7 +9,7 @@ class TestBase
 
   def run_tests(whitelist_tests: nil)
     puts "Running tests for #{self.class.name}"
-    test_methods.each do |test_method|
+    all_test_methods.each do |test_method|
       if whitelist_tests.nil? || whitelist_tests.include?(test_method.to_s)
         puts "  #{test_method}"
         self.send(test_method)
@@ -20,7 +20,7 @@ class TestBase
 
   def dependencies(*dep_methods)
     dep_methods.each do |dep_method|
-      if test_methods.include?(dep_method) && !@tests_run.include?(dep_method)
+      if all_test_methods.include?(dep_method) && !@tests_run.include?(dep_method)
         self.send(dep_method)
       end
     end
@@ -34,7 +34,7 @@ class TestBase
     puts "     ❌ #{message}"
   end
 
-  def test_methods
+  def all_test_methods
     @test_methods ||= self.class.instance_methods.select { |m| m.to_s.start_with?("test_") }
   end
 
